@@ -179,7 +179,7 @@ export default function TabTwoComponent() {
   }, [checkedAdvertiseIds]);
 
   useEffect(() => {
-    campaigns.map((campaign, index) => {
+    campaigns.map((campaign) => {
       const hasZeroAdvertiseCount = campaign.listAdvertise.some(
         (advertise) => advertise.advertiseCount === 0
       );

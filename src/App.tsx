@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Tabs, Tab, Button } from "@mui/material";
 import "./App.css";
 import TabOneComponent from "./components/tab-one";
@@ -10,6 +10,7 @@ function App() {
   const [selectedTab, setSelectedTab] = useState<number>(0);
 
   const handleTabChange = (event: React.ChangeEvent<{}>, newValue: number) => {
+    console.log("event", event);
     setSelectedTab(newValue);
   };
 
