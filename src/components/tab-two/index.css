@@ -1,0 +1,55 @@
+.tab-2 {
+    height: 500px;
+    padding: 16px
+}
+
+.header-text-name {
+    font-size: 20px;
+    margin-right: 16px;
+}
+
+.header-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.container-camp {
+    padding: 16px;
+    margin-left: 16px;
+    cursor: pointer;
+    border: 2px solid rgb(188, 188, 188);
+    text-align: center;
+    border-radius: 10px;
+}
+
+.container-camp-active {
+    padding: 16px;
+    margin-left: 16px;
+    cursor: pointer;
+    border: 2px solid #1876D1;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.wrapper-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-text {
+    width: 100%;
+}
+
+.input-wrapper {
+    margin: 32px 0;
+    display: flex;
+    flex-direction: "row";
+}
+
+.number-ads {
+    text-align: center;
+    font-size: 24px;
+    margin: 10px 0;
+}
