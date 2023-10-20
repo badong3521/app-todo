@@ -178,6 +178,18 @@ export default function TabTwoComponent() {
     }
   }, [checkedAdvertiseIds]);
 
+  useEffect(() => {
+    campaigns.map((campaign, index) => {
+      const hasZeroAdvertiseCount = campaign.listAdvertise.some(
+        (advertise) => advertise.advertiseCount === 0
+      );
+      localStorage.setItem(
+        "hasZeroAdvertiseCount",
+        hasZeroAdvertiseCount.toString()
+      );
+    });
+  }, [campaigns]);
+
   const handleSelectAllChange = () => {
     if (selectCampaigns !== undefined) {
       const selectedCampaign = campaigns.find(
@@ -222,6 +234,10 @@ export default function TabTwoComponent() {
           <AddIcon />
         </Button>
         {campaigns.map((campaign, index) => {
+          const hasZeroAdvertiseCount = campaign.listAdvertise.some(
+            (advertise) => advertise.advertiseCount === 0
+          );
+          // setHasZeroAdvertiseCount(hasZeroAdvertiseCount);
           return (
             <div
               onClick={() => {
@@ -236,7 +252,15 @@ export default function TabTwoComponent() {
               key={index}
             >
               <div className="wrapper-name">
-                <p className="header-text-name">{campaign.nameCampaigns}</p>
+                <p
+                  className={
+                    hasZeroAdvertiseCount
+                      ? "header-text-name-red"
+                      : "header-text-name"
+                  }
+                >
+                  {campaign.nameCampaigns}
+                </p>
                 <CheckCircleIcon
                   fontSize="small"
                   color={campaign.checked ? "success" : "disabled"}
@@ -351,7 +375,7 @@ export default function TabTwoComponent() {
                 </div>
                 <TextField
                   className="item-header"
-                  error={false}
+                  error={advertise.advertiseCount === 0 ? true : false}
                   id="standard-error"
                   label=""
                   variant="standard"

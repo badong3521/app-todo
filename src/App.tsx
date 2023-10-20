@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Tabs, Tab, Button } from "@mui/material";
 import "./App.css";
 import TabOneComponent from "./components/tab-one";
@@ -25,11 +25,12 @@ function App() {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
+      const storedCampaigns = localStorage.getItem("campaigns");
       if (validationSchema.isValidSync(values)) {
         // Lưu dữ liệu vào localStorage
         localStorage.setItem("formData", JSON.stringify(values));
         alert("Biểu mẫu đã được gửi: " + JSON.stringify(values, null, 2));
-        // onSubmit(values);
+        alert("Biểu mẫu đã được gửi: " + storedCampaigns);
       } else {
         alert("Biểu mẫu không hợp lệ. Vui lòng kiểm tra lại!");
       }
@@ -43,7 +44,15 @@ function App() {
         variant="contained"
         color="primary"
         onClick={() => {
-          formik.handleSubmit();
+          const hasZeroAdvertiseCount = localStorage.getItem(
+            "hasZeroAdvertiseCount"
+          );
+          console.log("KJSNADNSD", hasZeroAdvertiseCount);
+          if (hasZeroAdvertiseCount === "false") {
+            formik.handleSubmit();
+          } else {
+            alert("Biểu mẫu không hợp lệ. Vui lòng kiểm tra lại!");
+          }
         }}
       >
         Submit
