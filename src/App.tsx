@@ -47,7 +47,6 @@ function App() {
           const hasZeroAdvertiseCount = localStorage.getItem(
             "hasZeroAdvertiseCount"
           );
-          console.log("KJSNADNSD", hasZeroAdvertiseCount);
           if (hasZeroAdvertiseCount === "false") {
             formik.handleSubmit();
           } else {
