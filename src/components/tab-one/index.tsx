@@ -1,8 +1,9 @@
+import { FormikValues } from "formik";
 import "./index.css";
 import { Paper, TextField } from "@mui/material";
 
 type Props = {
-  formik?: any;
+  formik: FormikValues;
 };
 
 export default function TabOneComponent({ formik }: Props) {

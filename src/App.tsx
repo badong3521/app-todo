@@ -45,6 +45,9 @@ function App() {
         variant="contained"
         color="primary"
         onClick={() => {
+          if (formik.touched.campaignName && formik.errors.campaignName) {
+            alert(formik.errors.campaignName);
+          }
           const hasZeroAdvertiseCount = localStorage.getItem(
             "hasZeroAdvertiseCount"
           );
